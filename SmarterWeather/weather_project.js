@@ -7,7 +7,6 @@ import {
   AsyncStorage
 } from "react-native";
 import Button from "./Button";
-import CurrentLocation from "./CurrentLocation";
 import Clock from "./Clock";
 import * as Expo from "expo";
 import Forecast from "./Forecast";
@@ -157,9 +156,6 @@ class WeatherProject extends Component {
             <Clock />
           </View>
 
-          <View>
-          <CurrentLocation />
-          </View>
 
           <View style={styles.row}>
             <LocationButton onGetCoords={this._getForecastForCoords} />

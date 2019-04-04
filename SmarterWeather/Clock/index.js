@@ -1,5 +1,5 @@
-import React, { Component } from “react”;
-import { Text } from ‘react-native’;
+import React, { Component } from 'react';
+import { Text } from "react-native";
 	class Clock extends React.Component {
 	  constructor(props) {
 	    super(props);
@@ -28,7 +28,6 @@ import { Text } from ‘react-native’;
 		</Text>
 	      );
 	}
-      }
-
+  }
 
 export default Clock;
