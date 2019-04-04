@@ -20,7 +20,10 @@ class LocationButton extends Component {
       { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
     );
   }
-
+  componentDidMount() {
+              this._onPress()
+            }
+            
   render() {
     return (
       <Button
