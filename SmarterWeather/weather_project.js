@@ -7,6 +7,8 @@ import {
   AsyncStorage
 } from "react-native";
 import Button from "./Button";
+import CurrentLocation from "./CurrentLocation";
+import Clock from "./Clock";
 import * as Expo from "expo";
 import Forecast from "./Forecast";
 import LocationButton from "./LocationButton";
@@ -28,7 +30,7 @@ class WeatherProject extends Component {
     this.state = { forecast: null };
   }
 
-    
+
   checkMultiPermissions = async() => {
     const { Permissions, FileSystem } = Expo;
     console.log(FileSystem.documentDirectory);
@@ -63,8 +65,8 @@ class WeatherProject extends Component {
             }
           }
       }
-      
-  }      
+
+  }
   _retrieveData = async () => {
       console.log("Retrieving Data");
         try {
@@ -150,6 +152,13 @@ class WeatherProject extends Component {
                 underlineColorAndroid="transparent"
               />
             </View>
+          </View>
+          <View>
+            <Clock />
+          </View>
+
+          <View>
+          <CurrentLocation />
           </View>
 
           <View style={styles.row}>
