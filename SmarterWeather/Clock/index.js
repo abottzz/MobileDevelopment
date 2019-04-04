@@ -1,33 +1,38 @@
-import React, { Component } from 'react';
-import { Text } from "react-native";
-	class Clock extends React.Component {
-	  constructor(props) {
-	    super(props);
-    this.state =  {
-	      time: new Date().toLocaleTimeString()
-	};
-       }
-       componentDidMount() {
-	this.intervalID = setInterval(
-	   () => this.interval(),
-	   1000
-	);
-      }
-      componentWillUnmount() {
-	clearInterval(this.intervalID);
-	}
-	interval() {
-	  this.setState({
-	   time: new Date().toLocaleTimeString()
-	});
-         }
-         render() {
-	 return  (
-		<Text>
-		   {this.state.time}
-		</Text>
-	      );
-	}
-  }
+import React, { Component } from "react";
 
-export default Clock;
+import Button from "./../Button";
+import styles from "./style.js";
+
+const style = { backgroundColor: "#DDDDDD" };
+
+class LocationButton extends Component {
+  _onPress() {
+    navigator.geolocation.getCurrentPosition(
+      initialPosition => {
+        this.props.onGetCoords(
+          initialPosition.coords.latitude,
+          initialPosition.coords.longitude
+        );
+      },
+      error => {
+        alert(error.message);
+      },
+      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
+    );
+  }
+  componentDidMount() {
+              this._onPress()
+            }
+
+  render() {
+    return (
+      <Button
+        label="Use Current Location"
+        style={style}
+        onPress={this._onPress.bind(this)}
+      />
+    );
+  }
+}
+
+export default LocationButton;
