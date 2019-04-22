@@ -1,5 +1,6 @@
 import React from 'react';
-import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
+
+import { Text, View, TouchableOpacity, StyleSheet, Linking } from 'react-native';
 export default class CardioScreen extends React.Component {
   render() {
     return (
@@ -64,11 +65,12 @@ export default class CardioScreen extends React.Component {
             <Text style= {{ textAlign: 'center', fontWeight: 'bold' }}>Song</Text>
           </Text>
           <Text style={{ marginTop: 15, fontSize: 21 }}>Open with...</Text>
-<TouchableOpacity
+<TouchableOpacity onPress={() => Linking.openURL('Spotify://app')}
             style={styles.app}
-            onPress={() => this.props.navigation.navigate('')}>
+            >
             <Text style={{fontSize: 23 }}>Spotify</Text>
           </TouchableOpacity>
+           
         </View>
         
 
